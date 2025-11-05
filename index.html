@@ -547,6 +547,9 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
         }
 
         .cert-card:hover {
@@ -580,24 +583,6 @@
             color: var(--primary);
             font-size: 0.8em;
             font-weight: 500;
-        }
-
-        .cert-link {
-            display: inline-block;
-            margin-top: 8px;
-            color: white;
-            text-decoration: none;
-            font-size: 0.85em;
-            padding: 6px 14px;
-            background: var(--gradient-purple);
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .cert-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
         }
 
         .footer {
@@ -959,14 +944,6 @@
             .cert-date {
                 font-size: 9pt;
                 color: #333;
-            }
-
-            .cert-link {
-                background: none;
-                color: #000;
-                border: 1px solid #000;
-                text-decoration: underline;
-                font-size: 8pt;
             }
 
             /* Page break control */
@@ -1447,20 +1424,25 @@
                 <h2 class="section-title">Certifications</h2>
             </div>
             <div class="certs-grid">
-                <div class="cert-card">
-                    <img src="https://images.credly.com/size/340x340/images/b9feab85-1a43-4f6c-99a5-631b88d5461b/image.png" alt="AWS Developer Associate Badge" class="cert-badge-img">
+                <a href="https://www.credly.com/badges/13279b3c-f3c0-45cb-b166-f79709f4ddc2" class="cert-card" target="_blank">
+                    <img src="https://images.credly.com/size/680x680/images/4d4693bb-530e-4bca-9327-de07f3aa2348/image.png" alt="AWS Certified AI Practitioner Badge" class="cert-badge-img">
+                    <h3 class="cert-title">AWS Certified AI Practitioner</h3>
+                    <p class="cert-issuer">Amazon Web Services</p>
+                    <p class="cert-date">Nov 2025 - Nov 2028</p>
+                </a>
+
+                <a href="https://www.credly.com/badges/022ed02c-19be-432a-8a4a-18a3dcc8ed2f" class="cert-card" target="_blank">
+                    <img src="https://images.credly.com/images/b9feab85-1a43-4f6c-99a5-631b88d5461b/image.png" alt="AWS Developer Associate Badge" class="cert-badge-img">
                     <h3 class="cert-title">AWS Certified Developer – Associate</h3>
                     <p class="cert-issuer">Amazon Web Services</p>
-                    <p class="cert-date">Valid: Oct 2020 - Jun 2026</p>
-                    <a href="https://www.youracclaim.com/badges/f856627a-c818-4ff5-99cf-f540bfb16402" class="cert-link" target="_blank">View Credential →</a>
-                </div>
-                <div class="cert-card">
-                    <img src="https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Solutions-Architect-Associate_badge.3419559c682629072f1eb968d59dea0741772c0f.png" alt="AWS Solutions Architect Associate Badge" class="cert-badge-img">
+                    <p class="cert-date">Oct 2020 - Jun 2026</p>
+                </a>
+                <a href="https://www.credly.com/badges/52ff0da3-fdb3-42b4-ae42-0c457d4d1d95" class="cert-card" target="_blank">
+                    <img src="https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png" alt="AWS Solutions Architect Associate Badge" class="cert-badge-img">
                     <h3 class="cert-title">AWS Certified Solutions Architect – Associate</h3>
                     <p class="cert-issuer">Amazon Web Services</p>
                     <p class="cert-date">Oct 2020 - Oct 2023</p>
-                    <a href="https://www.youracclaim.com/badges/52ff0da3-fdb3-42b4-ae42-0c457d4d1d95" class="cert-link" target="_blank">View Credential →</a>
-                </div>
+                </a>
             </div>
         </section>
 
