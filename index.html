@@ -536,6 +536,28 @@
             display: none;
         }
 
+        .projects-grid.filter-updated {
+            animation: filter-update-pulse 0.6s ease-out;
+        }
+
+        @keyframes filter-update-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0); }
+            30% { box-shadow: 0 0 0 8px rgba(168, 85, 247, 0.15); }
+            100% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0); }
+        }
+
+        .project-count {
+            font-size: 0.85em;
+            color: #718096;
+            margin-left: auto;
+            min-width: 100px;
+            text-align: right;
+        }
+
+        .project-count strong {
+            color: var(--primary-dark);
+        }
+
         .certs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1132,12 +1154,14 @@
                 <span>Filter by focus:</span>
                 <button class="filter-pill active" data-filter="all" aria-pressed="true">All</button>
                 <button class="filter-pill" data-filter="devops">DevOps / AWS</button>
+                <button class="filter-pill" data-filter="platform">Platform</button>
                 <button class="filter-pill" data-filter="fullstack">Full Stack</button>
                 <button class="filter-pill" data-filter="frontend">Frontend</button>
+                <span class="project-count" id="project-count" aria-live="polite"></span>
             </div>
 
-            <div class="projects-grid">
-                <div class="project-card" data-tags="devops fullstack">
+            <div class="projects-grid" id="projects-grid">
+                <div class="project-card" data-tags="devops fullstack platform">
                     <div class="project-header">
                         <h3 class="project-title">Payroll Platform Components Uplift</h3>
                         <div class="project-meta">
@@ -1183,7 +1207,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-tags="devops">
+                <div class="project-card" data-tags="devops platform">
                     <div class="project-header">
                         <h3 class="project-title">Data Lake Foundation</h3>
                         <div class="project-meta">
@@ -1227,7 +1251,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-tags="devops fullstack">
+                <div class="project-card" data-tags="fullstack">
                     <div class="project-header">
                         <h3 class="project-title">Internet Banking Platform Uplift - Discovery and POC</h3>
                         <div class="project-meta">
@@ -1254,7 +1278,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-tags="devops fullstack frontend">
+                <div class="project-card" data-tags="frontend platform">
                     <div class="project-header">
                         <h3 class="project-title">Shared React Components UI Library</h3>
                         <div class="project-meta">
@@ -1373,7 +1397,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-tags="devops fullstack frontend">
+                <div class="project-card" data-tags="fullstack frontend">
                     <div class="project-header">
                         <h3 class="project-title">Agent Profile</h3>
                         <div class="project-meta">
@@ -1462,6 +1486,10 @@
             const filterPills = document.querySelectorAll('.filter-pill');
             const projectCards = document.querySelectorAll('.project-card[data-tags]');
 
+            const projectsGrid = document.getElementById('projects-grid');
+            const projectCountEl = document.getElementById('project-count');
+            const totalCount = projectCards.length;
+
             function applyFilter(filter) {
                 filterPills.forEach(pill => {
                     const isActive = pill.dataset.filter === filter;
@@ -1474,7 +1502,22 @@
                     const matches = filter === 'all' || tags.includes(filter);
                     card.classList.toggle('hidden-by-filter', !matches);
                 });
+
+                const visibleCount = Array.from(projectCards).filter(card => !card.classList.contains('hidden-by-filter')).length;
+                projectCountEl.innerHTML = filter === 'all'
+                    ? `<strong>${visibleCount}</strong> project${visibleCount !== 1 ? 's' : ''}`
+                    : `Showing <strong>${visibleCount}</strong> of ${totalCount}`;
+
+                projectsGrid.classList.remove('filter-updated');
+                void projectsGrid.offsetWidth;
+                projectsGrid.classList.add('filter-updated');
+                projectsGrid.addEventListener('animationend', function handler() {
+                    projectsGrid.removeEventListener('animationend', handler);
+                    projectsGrid.classList.remove('filter-updated');
+                });
             }
+
+            applyFilter('all');
 
             filterPills.forEach(pill => {
                 pill.addEventListener('click', () => {
