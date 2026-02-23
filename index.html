@@ -369,17 +369,19 @@
         }
 
         .projects-grid {
-            display: grid;
-            gap: 18px;
+            column-count: 1;
+            column-gap: 18px;
         }
 
         @media (min-width: 992px) {
             .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
+                column-count: 2;
             }
         }
 
         .project-card {
+            break-inside: avoid;
+            margin-bottom: 18px;
             background: white;
             border-radius: 8px;
             padding: 22px;
@@ -453,15 +455,13 @@
         /* Bullet list style for multiple points */
         ul.project-description {
             padding-left: 1.5em;
-            margin: 0 0 12px 0;
+            margin: 0 0 24px 0;
             list-style-type: disc;
         }
         ul.project-description li {
-            margin-bottom: 0.35em;
+            margin-bottom: 0.9em;
         }
-        ul.project-description li:last-child {
-            margin-bottom: 0;
-        }
+     
         ul.project-description li::marker {
             color: var(--primary);
         }
@@ -1034,7 +1034,7 @@
                 <img src="maiklam_dev.png" alt="Mai K Lam Logo" class="logo">
             </div>
             <h1>Mai K Lam</h1>
-            <div class="subtitle">Full Stack Developer • DevOps • Cloud AWS</div>
+            <div class="subtitle">Full Stack Developer • DevOps • Cloud Engineer (AWS)</div>
             <div class="contact-links">
                 <a href="https://linkedin.com/in/maiklam" class="contact-link" target="_blank">
                     <span>🔗</span> LinkedIn
@@ -1047,7 +1047,8 @@
                 </span>
             </div>
             <a href="https://drive.google.com/file/d/1kmf7K8oNKeKPjXd8vxG1d3WL647QsBsE/view" class="download-btn" target="_blank">
-                <span>📄</span> Download PDF Resume
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF Resume
             </a>
         </header>
         <section class="section" id="about">
@@ -1061,7 +1062,7 @@
                 Thrive on being a generalist, quickly onboarding onto new domains and projects, and adapting to change in fast-paced environments. Experience spans a wide variety of projects, from start-ups to enterprise systems, and from discovery to delivery assurance.
 
                 <br><br>
-                As a full-stack developer, offer deep technical versatility, comfortably working across multiple technology stacks, from front-end and back-end development through to managing cloud infrastructure. Have also played Tech Lead and Tech Anchor roles, focusing on providing clear technical direction, driving architectural consensus, continuous improvements, and fostering collaborative teams.
+                As a full-stack developer, offer deep technical versatility, comfortably working across multiple technology stacks, from front-end and back-end development through to managing cloud infrastructure. Have also played Tech Lead and Lead Developer roles, focusing on providing clear technical direction, driving architectural consensus, continuous improvements, and fostering collaborative teams.
 
                 <br><br>
                 Keen on leveraging new tools and platforms, eager to integrate AI responsibly into my workflow to enhance productivity.
@@ -1158,7 +1159,7 @@
                     </p>
                     <div class="experience-roles">
                         <div class="role-item">
-                            <span class="role-title">Lead Developer / Tech Lead / Tech Anchor</span>
+                            <span class="role-title">Lead Developer / Tech Lead</span>
                             <span class="role-dates">(2022 – 2025)</span>
                         </div>
                         <div class="role-item">
@@ -1188,7 +1189,7 @@
         <section class="section" id="projects">
             <div class="section-header">
                 <span class="section-icon">🎯</span>
-                <h2 class="section-title">Featured Projects</h2>
+                <h2 class="section-title">Selected Client Engagements</h2>
             </div>
 
             <div class="project-filter-bar">
@@ -1206,26 +1207,35 @@
             </div>
 
             <div class="projects-grid" id="projects-grid">
-                <div class="project-card" data-tags="devops fullstack platform">
+                <div class="project-card" data-tags="devops fullstack platform frontend">
                     <div class="project-header">
-                        <h3 class="project-title">Payroll Platform Components Uplift</h3>
+                        <h3 class="project-title">Accounting SaaS Platform Company</h3>
                         <div class="project-meta">
-                            <span class="project-client">Client: Accounting SaaS Platform Company</span>
-                            <span class="project-date-role">Feb 2025 - Sep 2025 | Tech Lead</span>
+                            <span class="project-date-role">Jan 2020 – Sep 2025</span>
                         </div>
                     </div>
                     <ul class="project-description">
-                        <li>Led team to migrate a critical service from ECS to Kubernetes and build new components to support async processing of Reporting ETL (publish and consume events via internal Kafka platform)</li>
-                        <li>Acted as a central point of coordination for multiple engineering teams consuming shared Payroll services, managing communication for release schedules, breaking changes, and deployment status to ensure zero disruption during the migrations</li>
+                        <li>As <strong>Tech Lead</strong> (Feb 2025 – Sep 2025): Led a platform team to migrate a critical platform service from ECS to Kubernetes, and build new components for async processing of Reporting ETL via Kafka, decommissioning legacy platform services. Coordinated multiple engineering teams to ensure zero disruption during migrations.</li>
+                        <li>As <strong>Lead Developer</strong> (Feb 2021 – Dec 2022): Led the design and delivery of a shared components library to accelerate UI modernization of core accounting SPAs (Invoice, Bills, Inventory, Contact). The library is built with React and Micro-frontend architecture, with comprehensive integration documentation and example usages demonstrated using Storybook.</li>
+                        <li>As <strong>Senior Developer</strong> (Oct 2020 – Jan 2021): Implemented robust deployment pipelines and enhanced automation tests for an application being modernised, ensuring the application's path to production compliance and continuous delivery. Built reusable TeamCity modules for sending deployment status and observability notifications to Slack channels as part of the deployment pipeline uplift.</li>
+                        <li>As <strong>Senior Developer</strong> (Jan 2020 – Aug 2020): Developed the Notifications Platform MVP, comprising multiple .NET Core services deployed on PaaS K8s, and contributed to a foundational .NET Core skeleton template that automated service bootstrapping with integrated CI/CD, security scanning, and observability.</li>
                     </ul>
                     <div class="tech-stack">
                         <span class="tech-tag">.NET Core</span>
                         <span class="tech-tag">C#</span>
+                        <span class="tech-tag">Kafka</span>
+                        <span class="tech-tag">Docker</span>
                         <span class="tech-tag">Terraform</span>
-                        <span class="tech-tag">GitHub Actions</span>
-                        <span class="tech-tag">TeamCity</span>
                         <span class="tech-tag">Kubernetes</span>
+                        <span class="tech-tag">Helm</span>
                         <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">TeamCity</span>
+                        <span class="tech-tag">GitHub Actions</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Storybook</span>
+                        <span class="tech-tag">Jest</span>
+                        <span class="tech-tag">Cypress</span>
                         <span class="tech-tag">New Relic</span>
                         <span class="tech-tag">SumoLogic</span>
                     </div>
@@ -1233,15 +1243,13 @@
 
                 <div class="project-card" data-tags="devops fullstack frontend">
                     <div class="project-header">
-                        <h3 class="project-title">Engineering Practice Uplift</h3>
+                        <h3 class="project-title">Carsales</h3>
                         <div class="project-meta">
-                            <span class="project-client">Client: Carsales</span>
-                            <span class="project-date-role">Aug 2024 - Dec 2024 | Senior Developer</span>
+                            <span class="project-date-role">Aug 2024 – Dec 2024 | Senior Developer</span>
                         </div>
                     </div>
                     <ul class="project-description">
-                        <li>Part of the core team that delivered the work behind the <a href="https://www.thoughtworks.com/clients/carsales" target="_blank" rel="noopener">success story published by Thoughtworks</a>.</li>
-                        <li>Uplifted engineering practices by pairing with client developers to introduce a new way of working and TDD, and introducing automated system tests into CI pipelines through hands-on implementation plus brown-bag sessions to the engineering department. <em>System tests here are a suite of UI automation tests for core features built on Cypress against the full stack of applications run on Docker.</em></li>
+                        <li>Uplifted engineering practices by introducing Test-Driven Development (TDD) and pairing with client developers. Introduced automated system tests (UI automation with Cypress on Docker) into CI pipelines, which contributed to the <a href="https://www.thoughtworks.com/clients/carsales" target="_blank" rel="noopener">Thoughtworks + Carsales success story</a>.</li>
                     </ul>
                     <div class="tech-stack">
                         <span class="tech-tag">GitHub Actions</span>
@@ -1254,15 +1262,13 @@
 
                 <div class="project-card" data-tags="devops platform">
                     <div class="project-header">
-                        <h3 class="project-title">Data Lake Foundation</h3>
+                        <h3 class="project-title">Government Agency</h3>
                         <div class="project-meta">
-                            <span class="project-client">Client: Government Agency</span>
-                            <span class="project-date-role">Jun 2024 - Jul 2024 | Tech Lead</span>
+                            <span class="project-date-role">Jun 2024 – Jul 2024 | Tech Lead</span>
                         </div>
                     </div>
                     <ul class="project-description">
-                        <li>Led delivery team in a short engagement to establish the foundational infrastructure of a data lake in AWS.</li>
-                        <li>Focused on breaking down requirements, kept the team on the right prioritization of work, and ensured frequent and transparent communications with multiple stakeholders to align on architecture design, scope, and delivery progress against an extremely tight timeframe.</li>
+                        <li>Established the foundational infrastructure of a data lake in AWS under an extremely tight timeframe. Focused on requirements breakdown, work prioritization, and transparent stakeholder communication to align on architecture and scope.</li>
                     </ul>
                     <div class="tech-stack">
                         <span class="tech-tag">AWS S3</span>
@@ -1275,143 +1281,41 @@
 
                 <div class="project-card" data-tags="fullstack frontend">
                     <div class="project-header">
-                        <h3 class="project-title">Banking App MVP</h3>
+                        <h3 class="project-title">Australian Major Bank</h3>
                         <div class="project-meta">
-                            <span class="project-client">Client: Australian Major Bank</span>
-                            <span class="project-date-role">Nov 2023 - May 2024 | Senior Developer</span>
+                            <span class="project-date-role">Jul 2023 – May 2024</span>
                         </div>
                     </div>
                     <ul class="project-description">
-                        <li>Led development for Open Banking and Bank Statements features for a new consumer banking app, including investigating existing enterprise capabilities, and deciding on the design and implementation.</li>
-                        <li>Hands-on delivery on both the backend API (Ruby on Rails) and frontend app (React Native).</li>
+                        <li>As <strong>Tech Lead</strong>: Led a team in a Discovery and POC phase to identify and prioritize initiatives for improving the resilience, availability, and performance of critical internet banking systems, driving architectural decisions and formalizing documentation for knowledge transfer.</li>
+                        <li>As <strong>Senior Developer</strong>: Led development for Open Banking and Bank Statements features on a new consumer banking app, providing hands-on delivery on the backend API (Ruby on Rails) and frontend app (React Native).</li>
                     </ul>
                     <div class="tech-stack">
                         <span class="tech-tag">Ruby on Rails</span>
                         <span class="tech-tag">React Native</span>
                         <span class="tech-tag">GraphQL</span>
-                        <span class="tech-tag">Storybook</span>
-                        <span class="tech-tag">TypeScript</span>
-                        <span class="tech-tag">Jest</span>
-                        <span class="tech-tag">BuildKite</span>
-                    </div>
-                </div>
-
-                <div class="project-card" data-tags="fullstack">
-                    <div class="project-header">
-                        <h3 class="project-title">Internet Banking Platform Uplift - Discovery and POC</h3>
-                        <div class="project-meta">
-                            <span class="project-client">Client: Australian Major Bank</span>
-                            <span class="project-date-role">Jul 2023 - Nov 2023 | Tech Lead</span>
-                        </div>
-                    </div>
-                    <ul class="project-description">
-                        <li>Led a small team to identify and prioritize initiatives aimed at improving the resilience, availability, and performance of critical banking systems.</li>
-                        <li>Drove architectural design decisions and supported implementation of the POC, successfully liaising with external teams and stakeholders.</li>
-                        <li>Formalized system documentation and knowledge transfer to ensure a smooth transition of ownership to the client's internal teams.</li>
-                    </ul>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Ruby on Rails</span>
-                        <span class="tech-tag">Kafka</span>
                         <span class="tech-tag">TypeScript</span>
                         <span class="tech-tag">Node.js</span>
                         <span class="tech-tag">Terraform</span>
                         <span class="tech-tag">AWS</span>
-                        <span class="tech-tag">GCP</span>
                         <span class="tech-tag">Kubernetes</span>
+                        <span class="tech-tag">Kafka</span>
+                        <span class="tech-tag">BuildKite</span>
                         <span class="tech-tag">GitLab CI</span>
                         <span class="tech-tag">Splunk</span>
                     </div>
                 </div>
 
-                <div class="project-card" data-tags="frontend platform">
-                    <div class="project-header">
-                        <h3 class="project-title">Shared React Components UI Library</h3>
-                        <div class="project-meta">
-                            <span class="project-client">Client: Accounting SaaS Platform Company</span>
-                            <span class="project-date-role">Feb 2021 - Dec 2022 | Lead Developer</span>
-                        </div>
-                    </div>
-                    <ul class="project-description">
-                        <li>Led the design and delivery of a shared components library (Common Components) to help accelerate the UI modernization of various core accounting SPAs (Invoice, Bills, Inventory, Contact).</li>
-                        <li>Collaborated with consumer teams to gather requirements and integration options.</li>
-                        <li>Wrote comprehensive integration guides and technical documentation for the Common Components library to streamline the self-service adoption process with examples and use cases demonstrated using Storybook</li>
-                    </ul>
-                    <div class="tech-stack">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Storybook</span>
-                        <span class="tech-tag">Jest</span>
-                        <span class="tech-tag">Cypress</span>
-                        <span class="tech-tag">Micro-frontend</span>
-                        <span class="tech-tag">.NET Core</span>
-                        <span class="tech-tag">C#</span>
-                        <span class="tech-tag">Terraform</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">Kubernetes</span>
-                        <span class="tech-tag">TeamCity</span>
-                    </div>
-                </div>
-
-                <div class="project-card" data-tags="devops fullstack">
-                    <div class="project-header">
-                        <h3 class="project-title">Notifications Platform MVP</h3>
-                        <div class="project-meta">
-                            <span class="project-client">Client: Accounting SaaS Platform Company</span>
-                            <span class="project-date-role">Jan 2020 - Aug 2020 | Senior Developer</span>
-                        </div>
-                    </div>
-                    <ul class="project-description">
-                        <li>Developed multiple .NET Core services deployed on PaaS K8s as part of a platform providing notifications with valuable business insights to end users. Metrics from feature engagement were extracted and provided to the Analytics team via data pipeline.</li>
-                        <li>Contributed to create a foundational .NET Core skeleton template that automated the bootstrapping of a new .NET Core service. This template integrated Terraform-managed New Relic dashboards and TeamCity CI pipeline with security scanning (static analysis, linting), serving as a precursor to current company-wide Accelerators.</li>
-                    </ul>
-                    <div class="tech-stack">
-                        <span class="tech-tag">.NET Core</span>
-                        <span class="tech-tag">C#</span>
-                        <span class="tech-tag">Terraform</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">Kubernetes</span>
-                        <span class="tech-tag">AWS</span>
-                        <span class="tech-tag">SQS</span>
-                        <span class="tech-tag">SNS</span>
-                        <span class="tech-tag">DynamoDB</span>
-                        <span class="tech-tag">Kinesis</span>
-                        <span class="tech-tag">Glue</span>
-                    </div>
-                </div>
-
                 <div class="project-card" data-tags="devops">
                     <div class="project-header">
-                        <h3 class="project-title">App Modernization - Path to Production Compliance</h3>
+                        <h3 class="project-title">HR Platform Vendor</h3>
                         <div class="project-meta">
-                            <span class="project-client">Client: Accounting SaaS Platform Company</span>
-                            <span class="project-date-role">Oct 2020 - Jan 2021 | Senior Developer</span>
+                            <span class="project-date-role">Nov 2019 – Dec 2019 | Senior Developer</span>
                         </div>
                     </div>
                     <ul class="project-description">
-                        <li>Implemented robust deployment pipelines and enhanced automation tests to support app modernisation.</li>
-                        <li>Worked alongside the feature delivery team to ensure the application's path to production met the latest company standards for continuous delivery, testing, and observability.</li>
-                        <li>Built reusable modules for TeamCity pipelines that provided detailed status updates and observability to Slack during deployment phases. Designed the module to be portable across multiple application pipelines within the project to ensure consistent deployment visibility.</li>
+                        <li>Executed performance testing (using Locust) and deep profiling of the main endpoints on a Ruby on Rails API, including reviewing AWS infrastructure (ECS, RDS) to identify and propose fixes for critical performance bottlenecks.</li>
                     </ul>
-                    <div class="tech-stack">
-                        <span class="tech-tag">TeamCity</span>
-                        <span class="tech-tag">Kotlin DSL</span>
-                        <span class="tech-tag">New Relic</span>
-                        <span class="tech-tag">Terraform</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">Slack Integration</span>
-                    </div>
-                </div>
-
-                <div class="project-card" data-tags="devops">
-                    <div class="project-header">
-                        <h3 class="project-title">App Performance Test and Assessment</h3>
-                        <div class="project-meta">
-                            <span class="project-client">Client: HR Platform Vendor</span>
-                            <span class="project-date-role">Nov 2019 - Dec 2019 | Senior Developer</span>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        Executed performance testing (using Locust), deep profiling of the main endpoints on Ruby on Rails API, reviewed AWS infrastructure configuration (ECS, RDS) to identify critical performance bottlenecks and root cause, proposed fixes to ensure the product could scale to support significant growth.
-                    </p>
                     <div class="tech-stack">
                         <span class="tech-tag">Ruby on Rails</span>
                         <span class="tech-tag">AWS</span>
@@ -1421,52 +1325,49 @@
 
                 <div class="project-card" data-tags="devops fullstack frontend">
                     <div class="project-header">
-                        <h3 class="project-title">Business Lending Application</h3>
+                        <h3 class="project-title">Large Financial Institution</h3>
                         <div class="project-meta">
-                            <span class="project-client">Client: Large Financial Institution</span>
-                            <span class="project-date-role">Sep 2018 - Aug 2019 | Senior Developer</span>
+                            <span class="project-date-role">Sep 2018 – Aug 2019 | Senior Developer</span>
                         </div>
                     </div>
                     <ul class="project-description">
-                        <li>Delivered full-stack development (React/Java/Node.js) across multiple Business Lending applications. 
-                        <li>Managed complexity by liaising between teams to align integration points as well as triaging issues.</li>
-                        <li>Ensured reliable continuous delivery via GoCD and managed Infrastructure as Code using Terraform on AWS (Lambda, EC2, S3, API Gateway).</li>
+                        <li>Provided full-stack development (React/Java/Node.js) across multiple Business Lending applications, managed inter-team complexity, and ensured reliable Continuous Delivery with Infrastructure as Code (Terraform) on AWS.</li>
                     </ul>
                     <div class="tech-stack">
-                        <span class="tech-tag">Java</span>
                         <span class="tech-tag">React</span>
+                        <span class="tech-tag">Java</span>
                         <span class="tech-tag">Node.js</span>
                         <span class="tech-tag">GoCD</span>
                         <span class="tech-tag">Terraform</span>
                         <span class="tech-tag">AWS Lambda</span>
                         <span class="tech-tag">EC2</span>
                         <span class="tech-tag">S3</span>
+                        <span class="tech-tag">API Gateway</span>
                     </div>
                 </div>
 
                 <div class="project-card" data-tags="fullstack frontend">
                     <div class="project-header">
-                        <h3 class="project-title">Agent Profile</h3>
+                        <h3 class="project-title">Real Estate Listings Website</h3>
                         <div class="project-meta">
-                            <span class="project-client">Client: Real Estate Listings Website</span>
-                            <span class="project-date-role">Oct 2017 - Aug 2018 | Senior Developer</span>
+                            <span class="project-date-role">Oct 2017 – Aug 2018 | Senior Developer</span>
                         </div>
                     </div>
                     <ul class="project-description">
-                        <li>Full-stack delivery of a new product including web front ends (React) and BFF (GraphQL, NodeJS).</li>
-                        <li>Created a new data pipeline for reporting using Scala, ElasticSearch and various AWS services (Lambda, API Gateway, SNS, EC2, Cloudformation, Cloudwatch).</li>
+                        <li>Delivered a new Agent Profile product, including full-stack development of web front ends (React) and BFF (GraphQL, Node.js), and creating a new data pipeline for reporting using Scala and ElasticSearch on AWS.</li>
                     </ul>
                     <div class="tech-stack">
-                        <span class="tech-tag">Scala</span>
                         <span class="tech-tag">React</span>
+                        <span class="tech-tag">GraphQL</span>
                         <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Scala</span>
+                        <span class="tech-tag">ElasticSearch</span>
                         <span class="tech-tag">AWS Lambda</span>
                         <span class="tech-tag">API Gateway</span>
                         <span class="tech-tag">SNS</span>
-                        <span class="tech-tag">ElasticSearch</span>
-                        <span class="tech-tag">Splunk</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">BuildKite</span>
+                        <span class="tech-tag">EC2</span>
+                        <span class="tech-tag">Cloudformation</span>
+                        <span class="tech-tag">Cloudwatch</span>
                     </div>
                 </div>
             </div>
@@ -1482,20 +1383,17 @@
                     <img src="https://images.credly.com/size/680x680/images/4d4693bb-530e-4bca-9327-de07f3aa2348/image.png" alt="AWS Certified AI Practitioner Badge" class="cert-badge-img">
                     <h3 class="cert-title">AWS Certified AI Practitioner</h3>
                     <p class="cert-issuer">Amazon Web Services</p>
-                    <p class="cert-date">Nov 2025 - Nov 2028</p>
                 </a>
 
                 <a href="https://www.credly.com/badges/022ed02c-19be-432a-8a4a-18a3dcc8ed2f" class="cert-card" target="_blank">
                     <img src="https://images.credly.com/images/b9feab85-1a43-4f6c-99a5-631b88d5461b/image.png" alt="AWS Developer Associate Badge" class="cert-badge-img">
                     <h3 class="cert-title">AWS Certified Developer – Associate</h3>
                     <p class="cert-issuer">Amazon Web Services</p>
-                    <p class="cert-date">Oct 2020 - Jun 2026</p>
                 </a>
                 <a href="https://www.credly.com/badges/52ff0da3-fdb3-42b4-ae42-0c457d4d1d95" class="cert-card" target="_blank">
                     <img src="https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png" alt="AWS Solutions Architect Associate Badge" class="cert-badge-img">
                     <h3 class="cert-title">AWS Certified Solutions Architect – Associate</h3>
                     <p class="cert-issuer">Amazon Web Services</p>
-                    <p class="cert-date">Oct 2020 - Oct 2023</p>
                 </a>
             </div>
         </section>
@@ -1509,12 +1407,10 @@
                 <div class="cert-card">
                     <h3 class="cert-title">Master of Information Technology</h3>
                     <p class="cert-issuer">Swinburne University of Technology</p>
-                    <p class="cert-date">2010 – 2012</p>
                 </div>
                 <div class="cert-card">
                     <h3 class="cert-title">Bachelor of Design (Multimedia Systems)</h3>
                     <p class="cert-issuer">RMIT University</p>
-                    <p class="cert-date">2006 – 2009</p>
                 </div>
             </div>
         </section>
@@ -1552,8 +1448,8 @@
 
                 const visibleCount = Array.from(projectCards).filter(card => !card.classList.contains('hidden-by-filter')).length;
                 projectCountEl.innerHTML = filter === 'all'
-                    ? `<strong>${visibleCount}</strong> project${visibleCount !== 1 ? 's' : ''}`
-                    : `Showing <strong>${visibleCount}</strong> of ${totalCount}`;
+                    ? `<strong>${visibleCount}</strong> client${visibleCount !== 1 ? 's' : ''}`
+                    : `Showing <strong>${visibleCount}</strong> of ${totalCount} client${totalCount !== 1 ? 's' : ''}`;
 
                 projectsGrid.classList.remove('filter-updated');
                 void projectsGrid.offsetWidth;
