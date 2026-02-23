@@ -1,0 +1,26 @@
+{
+  "_comment": "Add new entries to 'certifications'. Each needs: title, issuer, href (optional), imgSrc (optional), imgAlt (optional).",
+  "certifications": [
+    {
+      "title": "AWS Certified AI Practitioner",
+      "issuer": "Amazon Web Services",
+      "href": "https://www.credly.com/badges/13279b3c-f3c0-45cb-b166-f79709f4ddc2",
+      "imgSrc": "https://images.credly.com/size/680x680/images/4d4693bb-530e-4bca-9327-de07f3aa2348/image.png",
+      "imgAlt": "AWS Certified AI Practitioner Badge"
+    },
+    {
+      "title": "AWS Certified Developer – Associate",
+      "issuer": "Amazon Web Services",
+      "href": "https://www.credly.com/badges/022ed02c-19be-432a-8a4a-18a3dcc8ed2f",
+      "imgSrc": "https://images.credly.com/images/b9feab85-1a43-4f6c-99a5-631b88d5461b/image.png",
+      "imgAlt": "AWS Developer Associate Badge"
+    },
+    {
+      "title": "AWS Certified Solutions Architect – Associate",
+      "issuer": "Amazon Web Services",
+      "href": "https://www.credly.com/badges/52ff0da3-fdb3-42b4-ae42-0c457d4d1d95",
+      "imgSrc": "https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png",
+      "imgAlt": "AWS Solutions Architect Associate Badge"
+    }
+  ]
+}

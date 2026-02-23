@@ -1216,23 +1216,8 @@
                 <span class="section-icon">🏆</span>
                 <h2 class="section-title">Certifications</h2>
             </div>
-            <div class="certs-grid">
-                <a href="https://www.credly.com/badges/13279b3c-f3c0-45cb-b166-f79709f4ddc2" class="cert-card" target="_blank">
-                    <img src="https://images.credly.com/size/680x680/images/4d4693bb-530e-4bca-9327-de07f3aa2348/image.png" alt="AWS Certified AI Practitioner Badge" class="cert-badge-img">
-                    <h3 class="cert-title">AWS Certified AI Practitioner</h3>
-                    <p class="cert-issuer">Amazon Web Services</p>
-                </a>
-
-                <a href="https://www.credly.com/badges/022ed02c-19be-432a-8a4a-18a3dcc8ed2f" class="cert-card" target="_blank">
-                    <img src="https://images.credly.com/images/b9feab85-1a43-4f6c-99a5-631b88d5461b/image.png" alt="AWS Developer Associate Badge" class="cert-badge-img">
-                    <h3 class="cert-title">AWS Certified Developer – Associate</h3>
-                    <p class="cert-issuer">Amazon Web Services</p>
-                </a>
-                <a href="https://www.credly.com/badges/52ff0da3-fdb3-42b4-ae42-0c457d4d1d95" class="cert-card" target="_blank">
-                    <img src="https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png" alt="AWS Solutions Architect Associate Badge" class="cert-badge-img">
-                    <h3 class="cert-title">AWS Certified Solutions Architect – Associate</h3>
-                    <p class="cert-issuer">Amazon Web Services</p>
-                </a>
+            <div class="certs-grid" id="certifications-grid">
+                <!-- Certifications are loaded from data/certifications.json -->
             </div>
         </section>
 
@@ -1285,6 +1270,17 @@
                     '</div>';
             }
 
+            function renderCertificationCard(cert) {
+                const title = escapeHtml(cert.title);
+                const issuer = escapeHtml(cert.issuer);
+                const imgHtml = cert.imgSrc ? '<img src="' + escapeHtml(cert.imgSrc) + '" alt="' + escapeHtml(cert.imgAlt || cert.title + ' Badge') + '" class="cert-badge-img">' : '';
+                const inner = imgHtml + '<h3 class="cert-title">' + title + '</h3><p class="cert-issuer">' + issuer + '</p>';
+                if (cert.href) {
+                    return '<a href="' + escapeHtml(cert.href) + '" class="cert-card" target="_blank" rel="noopener">' + inner + '</a>';
+                }
+                return '<div class="cert-card">' + inner + '</div>';
+            }
+
             function initProjectFilter() {
                 const filterPills = document.querySelectorAll('.filter-pill');
                 const projectCards = document.querySelectorAll('.project-card[data-tags]');
@@ -1325,19 +1321,24 @@
                 });
             }
 
-            fetch('data/projects.json')
-                .then(res => res.json())
-                .then(data => {
-                    const grid = document.getElementById('projects-grid');
-                    (data.projects || []).forEach(project => {
-                        grid.insertAdjacentHTML('beforeend', renderProjectCard(project));
-                    });
-                    initProjectFilter();
-                })
-                .catch(err => {
-                    document.getElementById('projects-grid').innerHTML =
-                        '<p class="project-description" style="padding:1em;">Unable to load projects. If viewing locally, use a local server (e.g. <code>npx serve</code>) so <code>data/projects.json</code> can be fetched.</p>';
+            Promise.all([
+                fetch('data/projects.json').then(res => res.json()),
+                fetch('data/certifications.json').then(res => res.json())
+            ]).then(function ([projectsData, certsData]) {
+                const projectsGrid = document.getElementById('projects-grid');
+                (projectsData.projects || []).forEach(function (project) {
+                    projectsGrid.insertAdjacentHTML('beforeend', renderProjectCard(project));
                 });
+                initProjectFilter();
+
+                const certsGrid = document.getElementById('certifications-grid');
+                (certsData.certifications || []).forEach(function (cert) {
+                    certsGrid.insertAdjacentHTML('beforeend', renderCertificationCard(cert));
+                });
+            }).catch(function (err) {
+                document.getElementById('projects-grid').innerHTML =
+                    '<p class="project-description" style="padding:1em;">Unable to load data. If viewing locally, use a local server (e.g. <code>npx serve</code>) so JSON files in <code>data/</code> can be fetched.</p>';
+            });
         })();
     </script>
 </body>
