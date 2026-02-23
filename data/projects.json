@@ -1,0 +1,72 @@
+{
+  "_comment": "Add new entries to 'projects'. Each needs: title, dateRole, tags (array), bullets (array; may contain <a>, <strong>), tech (array).",
+  "projects": [
+    {
+      "title": "Accounting SaaS Platform Company",
+      "dateRole": "Jan 2020 – Sep 2025",
+      "tags": ["devops", "fullstack", "platform", "frontend"],
+      "bullets": [
+        "As <strong>Tech Lead</strong> (Feb 2025 – Sep 2025): Led a platform team to migrate a critical platform service from ECS to Kubernetes, and build new components for async processing of Reporting ETL via Kafka, decommissioning legacy platform services. Coordinated multiple engineering teams to ensure zero disruption during migrations.",
+        "As <strong>Lead Developer</strong> (Feb 2021 – Dec 2022): Led the design and delivery of a shared components library to accelerate UI modernization of core accounting SPAs (Invoice, Bills, Inventory, Contact). The library is built with React and Micro-frontend architecture, with comprehensive integration documentation and example usages demonstrated using Storybook.",
+        "As <strong>Senior Developer</strong> (Oct 2020 – Jan 2021): Implemented robust deployment pipelines and enhanced automation tests for an application being modernised, ensuring the application's path to production compliance and continuous delivery. Built reusable TeamCity modules for sending deployment status and observability notifications to Slack channels as part of the deployment pipeline uplift.",
+        "As <strong>Senior Developer</strong> (Jan 2020 – Aug 2020): Developed the Notifications Platform MVP, comprising multiple .NET Core services deployed on PaaS K8s, and contributed to a foundational .NET Core skeleton template that automated service bootstrapping with integrated CI/CD, security scanning, and observability."
+      ],
+      "tech": [".NET Core", "C#", "Kafka", "Docker", "Terraform", "Kubernetes", "Helm", "AWS", "TeamCity", "GitHub Actions", "React", "TypeScript", "Storybook", "Jest", "Cypress", "New Relic", "SumoLogic"]
+    },
+    {
+      "title": "Carsales",
+      "dateRole": "Aug 2024 – Dec 2024 | Senior Developer",
+      "tags": ["devops", "fullstack", "frontend"],
+      "bullets": [
+        "Uplifted engineering practices by introducing Test-Driven Development (TDD) and pairing with client developers. Introduced automated system tests (UI automation with Cypress on Docker) into CI pipelines, which contributed to the <a href=\"https://www.thoughtworks.com/clients/carsales\" target=\"_blank\" rel=\"noopener\">Thoughtworks + Carsales success story</a>."
+      ],
+      "tech": ["GitHub Actions", "React", ".NET Core", "C#", "Docker"]
+    },
+    {
+      "title": "Government Agency",
+      "dateRole": "Jun 2024 – Jul 2024 | Tech Lead",
+      "tags": ["devops", "platform"],
+      "bullets": [
+        "Established the foundational infrastructure of a data lake in AWS under an extremely tight timeframe. Focused on requirements breakdown, work prioritization, and transparent stakeholder communication to align on architecture and scope."
+      ],
+      "tech": ["AWS S3", "AWS Glue", "Lakeformation", "Terraform", "GitLab CI"]
+    },
+    {
+      "title": "Australian Major Bank",
+      "dateRole": "Jul 2023 – May 2024",
+      "tags": ["fullstack", "frontend"],
+      "bullets": [
+        "As <strong>Tech Lead</strong>: Led a team in a Discovery and POC phase to identify and prioritize initiatives for improving the resilience, availability, and performance of critical internet banking systems, driving architectural decisions and formalizing documentation for knowledge transfer.",
+        "As <strong>Senior Developer</strong>: Led development for Open Banking and Bank Statements features on a new consumer banking app, providing hands-on delivery on the backend API (Ruby on Rails) and frontend app (React Native)."
+      ],
+      "tech": ["Ruby on Rails", "React Native", "GraphQL", "TypeScript", "Node.js", "Terraform", "AWS", "Kubernetes", "Kafka", "BuildKite", "GitLab CI", "Splunk"]
+    },
+    {
+      "title": "HR Platform Vendor",
+      "dateRole": "Nov 2019 – Dec 2019 | Senior Developer",
+      "tags": ["devops"],
+      "bullets": [
+        "Executed performance testing (using Locust) and deep profiling of the main endpoints on a Ruby on Rails API, including reviewing AWS infrastructure (ECS, RDS) to identify and propose fixes for critical performance bottlenecks."
+      ],
+      "tech": ["Ruby on Rails", "AWS", "Locust"]
+    },
+    {
+      "title": "Large Financial Institution",
+      "dateRole": "Sep 2018 – Aug 2019 | Senior Developer",
+      "tags": ["devops", "fullstack", "frontend"],
+      "bullets": [
+        "Provided full-stack development (React/Java/Node.js) across multiple Business Lending applications, managed inter-team complexity, and ensured reliable Continuous Delivery with Infrastructure as Code (Terraform) on AWS."
+      ],
+      "tech": ["React", "Java", "Node.js", "GoCD", "Terraform", "AWS Lambda", "EC2", "S3", "API Gateway"]
+    },
+    {
+      "title": "Real Estate Listings Website",
+      "dateRole": "Oct 2017 – Aug 2018 | Senior Developer",
+      "tags": ["fullstack", "frontend"],
+      "bullets": [
+        "Delivered a new Agent Profile product, including full-stack development of web front ends (React) and BFF (GraphQL, Node.js), and creating a new data pipeline for reporting using Scala and ElasticSearch on AWS."
+      ],
+      "tech": ["React", "GraphQL", "Node.js", "Scala", "ElasticSearch", "AWS Lambda", "API Gateway", "SNS", "EC2", "Cloudformation", "Cloudwatch"]
+    }
+  ]
+}
